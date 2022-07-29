@@ -1,24 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from '../styles/Navbar.module.css';
 
 
 const Navbar = ({ children }) => {
+  const [active, setActive] = useState(false);
   return (
     <div>
       <header>
         <div className="container">
           <nav>
             <img src='/logos/white.jpg' className='logo' />
-            <ul className="menu">
+            <ul className={` menu ${active ? 'menu-open' : ''}`}>
               <li><a href="">About</a></li>
               <li><a href="">Location</a></li>
               <li><a href="">Contact</a></li>
             </ul>
-            <button className='menu-btn'>
-              <span className="material-icons-outlined">
-                segment
-              </span>
+            <button className='menu-btn' onClick={() => setActive(!active)}>
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAIpJREFUSEvtlcERgCAMBI9O7ERLsRTtTCvTycOHCsJcMoZH8r8sLOeY4DTJiYsA/2Y+VF+qFwCHoff1uauk2hIqzBenO7Ch5fyqaPWX4knR9L211bkDaJre3OquwKKanU2jmoVmc/E5MTrl/cZKUNXq0m438AxgqNxYfrO3iXIx5aIyoZrSxoTcVJ9x4Qwfdg2vvgAAAABJRU5ErkJggg==" />
             </button>
 
           </nav>
